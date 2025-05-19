@@ -1,5 +1,5 @@
 <!-- resources/views/partials/navbar.blade.php -->
-<nav class="navbar navbar-expand navbar-dark" style="background-color: #6366f1">
+<nav class="navbar navbar-expand navbar-dark" style="background-color: #5A189A">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>

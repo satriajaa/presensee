@@ -6,7 +6,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="{{ route('admin.dashboard') }}" class="nav-link active" aria-current="page">
+            <a href="" class="nav-link active" style="background: #5A189A" aria-current="page">
                 <i class="fas fa-tachometer-alt me-2"></i>
                 Dashboard
             </a>
