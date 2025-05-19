@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_jadwal')->constrained('jadwal_pelajaran')->onDelete('cascade');
+            $table->date('tanggal');
+            $table->timestamp('waktu_absen')->useCurrent();
+            $table->foreignId('dibuat_oleh')->constrained('users')->onDelete('cascade');
+            $table->enum('status_laporan', ['draft', 'selesai'])->default('draft');
             $table->timestamps();
         });
     }

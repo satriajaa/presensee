@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('detail_absensis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_absensi')->constrained('absensi')->onDelete('cascade');
+            $table->foreignId('id_siswa')->constrained('users')->onDelete('cascade');
+            $table->enum('status', ['hadir', 'izin', 'sakit', 'alpha', 'terlambat']);
+            $table->text('catatan')->nullable();
             $table->timestamps();
         });
     }
