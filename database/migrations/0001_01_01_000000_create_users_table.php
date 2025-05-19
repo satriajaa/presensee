@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('no_induk')->unique();
             $table->string('password');
+            $table->enum('jenis_kelamin', ['l', 'p'])->nullable();
+            $table->foreignId('id_kelas')->nullable()->constrained('kelas')->onDelete('set null');
+            $table->foreignId('id_role')->constrained('roles');
+            $table->foreignId('id_wali_kelas')->nullable()->constrained('kelas')->onDelete('set null');
             $table->rememberToken();
             $table->timestamps();
         });
