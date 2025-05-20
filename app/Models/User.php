@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -17,9 +19,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'nama',
+        'no_induk',
         'password',
+        'jenis_kelamin',
+        'id_kelas',
+        'id_role',
+        'id_wali_kelas'
     ];
 
     /**
@@ -43,5 +49,25 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class, 'id_role');
+    }
+
+    public function kelas(): BelongsTo
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
+
+    public function waliKelas(): BelongsTo
+    {
+        return $this->belongsTo(Kelas::class, 'id_wali_kelas');
+    }
+
+    public function jadwalMengajar(): HasMany
+    {
+        return $this->hasMany(JadwalPelajaran::class, 'id_guru');
     }
 }
