@@ -14,13 +14,13 @@
         <li>
             <a href="#" class="nav-link link-dark">
                 <i class="fas fa-users me-2"></i>
-                Siswa
+                Guru
             </a>
         </li>
         <li>
             <a href="#" class="nav-link link-dark">
                 <i class="fas fa-chalkboard-teacher me-2"></i>
-                Guru
+                Siswa
             </a>
         </li>
         <li>
