@@ -26,31 +26,33 @@
                     <thead class="table-light">
                         <tr>
                             <th>#</th>
-                            <th>NIP/NUPTK</th>
-                            <th>Nama Guru</th>
-                            <th>Email</th>
-                            <th>Opsi</th>
+                            <th>NISN</th>
+                            <th>NAMA</th>
+                            <th>KELAS</th>
+                            <th>JENIS KELAMIN</th>
+                            <th>OPSI</th>
                         </tr>
                     </thead>
                     <tbody>
                     {{-- Contoh data statis --}}
                         @php
-                            $dataGuru = [
-                                ['nip' => '15619005093', 'nama' => 'Satria Arya S.Pd', 'email' => 'sbcdfvd@gmail.com'],
-                                ['nip' => '10201290023', 'nama' => 'Fachri Ahmad S.Pd', 'email' => 'bcdfvd@gmail.com'],
-                                ['nip' => '15627329273', 'nama' => 'Raffael Aditya', 'email' => 'bcdfvd@gmail.com'],
-                                ['nip' => '14227163919', 'nama' => 'Suffrotun Nasa S.Pd', 'email' => 'bcdfvd@gmail.com'],
-                                ['nip' => '12727391902', 'nama' => 'Nhayzaline S.Pd', 'email' => 'sbcdfvd@gmail.com'],
-                                ['nip' => '19283819002', 'nama' => 'Rizka Dwi S.Pd', 'email' => 'sbcdfvd@gmail.com'],
+                            $dataSiswa = [
+                                ['nisn' => '15619005093', 'nama' => 'Satria Arya S.Pd', 'kelas' => 'XI RPL 1', 'jk' => 'Laki-laki'],
+                                ['nisn' => '10201290023', 'nama' => 'Fachri Ahmad S.Pd', 'kelas' => 'XI RPL 1', 'jk' => 'Laki-laki'],
+                                ['nisn' => '15627329273', 'nama' => 'Raffael Aditya', 'kelas' => 'XI RPL 1', 'jk' => 'Laki-laki'],
+                                ['nisn' => '14227163919', 'nama' => 'Suffrotun Nasa S.Pd', 'kelas' => 'XI RPL 1', 'jk' => 'Perempuan'],
+                                ['nisn' => '12727391902', 'nama' => 'Nhayzaline S.Pd', 'kelas' => 'XI RPL 1', 'jk' => 'Perempuan'],
+                                ['nisn' => '19283819002', 'nama' => 'Rizka Dwi S.Pd', 'kelas' => 'XI RPL1', 'jk' => 'Perempuan'],
                             ];
                         @endphp
 
-                        @foreach ($dataGuru as $i => $guru)
+                        @foreach ($dataSiswa as $i => $siswa)
                         <tr>
                             <td>{{ $i + 1 }}</td>
-                            <td>{{ $guru['nip'] }}</td>
-                            <td>{{ $guru['nama'] }}</td>
-                            <td>{{ $guru['email'] }}</td>
+                            <td>{{ $siswa['nisn'] }}</td>
+                            <td>{{ $siswa['nama'] }}</td>
+                            <td>{{ $siswa['kelas'] }}</td>
+                            <td>{{ $siswa['jk'] }}</td>
                             <td>
                                 <a href="#" class="btn btn-sm btn-info text-white">
                                     <i class="bi bi-pencil-square"></i> Edit
@@ -79,16 +81,20 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nip" class="form-label">NIP/NUPTK</label>
-                        <input type="text" class="form-control" id="nip" name="nip" required>
+                        <label for="nip" class="form-label">NISN</label>
+                        <input type="text" class="form-control" id="nisn" name="nisn" required>
                     </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Guru</label>
+                        <label for="nama" class="form-label">Nama Siswa</label>
                         <input type="text" class="form-control" id="nama" name="nama" required>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email Guru</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="email" class="form-label">Kelas</label>
+                        <input type="email" class="form-control" id="kelas" name="kelas" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Jenis Kelamin</label>
+                        <input type="email" class="form-control" id="jk" name="jk" required>
                     </div>
                 </div>
                 <div class="modal-footer">

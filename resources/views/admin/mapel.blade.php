@@ -26,31 +26,29 @@
                     <thead class="table-light">
                         <tr>
                             <th>#</th>
-                            <th>NIP/NUPTK</th>
-                            <th>Nama Guru</th>
-                            <th>Email</th>
-                            <th>Opsi</th>
+                            <th>KODE</th>
+                            <th>MATA PELAJARAN</th>
+                            <th>OPSI</th>
                         </tr>
                     </thead>
                     <tbody>
                     {{-- Contoh data statis --}}
                         @php
-                            $dataGuru = [
-                                ['nip' => '15619005093', 'nama' => 'Satria Arya S.Pd', 'email' => 'sbcdfvd@gmail.com'],
-                                ['nip' => '10201290023', 'nama' => 'Fachri Ahmad S.Pd', 'email' => 'bcdfvd@gmail.com'],
-                                ['nip' => '15627329273', 'nama' => 'Raffael Aditya', 'email' => 'bcdfvd@gmail.com'],
-                                ['nip' => '14227163919', 'nama' => 'Suffrotun Nasa S.Pd', 'email' => 'bcdfvd@gmail.com'],
-                                ['nip' => '12727391902', 'nama' => 'Nhayzaline S.Pd', 'email' => 'sbcdfvd@gmail.com'],
-                                ['nip' => '19283819002', 'nama' => 'Rizka Dwi S.Pd', 'email' => 'sbcdfvd@gmail.com'],
+                            $dataMapel = [
+                                ['kode' => '15619005093', 'mapel' => 'Pemrograman'],
+                                ['kode' => '10201290023', 'mapel' => 'DataBase'],
+                                ['kode' => '15627329273', 'mapel' => 'Sejarah'],
+                                ['kode' => '14227163919', 'mapel' => 'Bahasa Indonesia'],
+                                ['kode' => '12727391902', 'mapel' => 'Bahasa Inggris'],
+                                ['kode' => '19283819002', 'mapel' => 'Matematika'],
                             ];
                         @endphp
 
-                        @foreach ($dataGuru as $i => $guru)
+                        @foreach ($dataMapel as $i => $mapel)
                         <tr>
                             <td>{{ $i + 1 }}</td>
-                            <td>{{ $guru['nip'] }}</td>
-                            <td>{{ $guru['nama'] }}</td>
-                            <td>{{ $guru['email'] }}</td>
+                            <td>{{ $mapel['kode'] }}</td>
+                            <td>{{ $mapel['mapel'] }}</td>
                             <td>
                                 <a href="#" class="btn btn-sm btn-info text-white">
                                     <i class="bi bi-pencil-square"></i> Edit
@@ -79,16 +77,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nip" class="form-label">NIP/NUPTK</label>
-                        <input type="text" class="form-control" id="nip" name="nip" required>
+                        <label for="nip" class="form-label">KODE</label>
+                        <input type="text" class="form-control" id="nisn" name="kode" required>
                     </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Guru</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Guru</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="nama" class="form-label">MATA PELAJARAN</label>
+                        <input type="text" class="form-control" id="nama" name="mapel" required>
                     </div>
                 </div>
                 <div class="modal-footer">

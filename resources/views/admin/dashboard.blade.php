@@ -4,7 +4,7 @@
 {{-- @section('title', 'Dashboard Admin') --}}
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row mb-4">
         <div class="col">
             <h1>Pressensee.</h1>
@@ -16,6 +16,9 @@
     <hr class="my-4">
 
     <div class="row mb-4">
+        <div class="image">
+                <img src="{{ asset('images/favicon.png') }}" alt="">
+            </div>
         <div class="col shadow-sm rounded-2">
             <h3 class="text-center">SMKN 4 KOTA TANGERANG</h3>
             <p class="text-center">Jl. Veteran No. 1 A Babakan, Tangerang Kota Tangerang - Banten</p>

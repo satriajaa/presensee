@@ -7,8 +7,7 @@
     <div class="row mb-4">
         <div class="col">
             <h1>Pressensee.</h1>
-            <h4 class="text-muted">Administrator</h4>
-            <p class="lead">Selamat Datang.</p>
+            <h4 class="text-muted">Data Kelas</h4>
         </div>
     </div>
     <div class="card shadow-sm">
@@ -26,37 +25,35 @@
                     <thead class="table-light">
                         <tr>
                             <th>#</th>
-                            <th>NIP/NUPTK</th>
-                            <th>Nama Guru</th>
-                            <th>Email</th>
-                            <th>Opsi</th>
+                            <th>NAMA KELAS</th>
+                            <th>WALI KELAS</th>
+                            <th>OPSI</th>
                         </tr>
                     </thead>
                     <tbody>
                     {{-- Contoh data statis --}}
                         @php
-                            $dataGuru = [
-                                ['nip' => '15619005093', 'nama' => 'Satria Arya S.Pd', 'email' => 'sbcdfvd@gmail.com'],
-                                ['nip' => '10201290023', 'nama' => 'Fachri Ahmad S.Pd', 'email' => 'bcdfvd@gmail.com'],
-                                ['nip' => '15627329273', 'nama' => 'Raffael Aditya', 'email' => 'bcdfvd@gmail.com'],
-                                ['nip' => '14227163919', 'nama' => 'Suffrotun Nasa S.Pd', 'email' => 'bcdfvd@gmail.com'],
-                                ['nip' => '12727391902', 'nama' => 'Nhayzaline S.Pd', 'email' => 'sbcdfvd@gmail.com'],
-                                ['nip' => '19283819002', 'nama' => 'Rizka Dwi S.Pd', 'email' => 'sbcdfvd@gmail.com'],
+                            $dataKelas = [
+                                ['nk' => 'XI RPL 1', 'wk' => 'Satria Arya S.Pd'],
+                                ['nk' => 'XI RPL 2', 'wk' => 'Fachri Ahmad S.Pd'],
+                                ['nk' => 'XI RPL 3', 'wk' => 'Raffael Aditya'],
+                                ['nk' => 'XI MESIN 1', 'wk' => 'Suffrotun Nasa S.Pd'],
+                                ['nk' => 'XI MESIN 2', 'wk' => 'Nhayzaline S.Pd',],
+                                ['nk' => 'XI LISTRIK 1', 'wk' => 'Rizka Dwi S.Pd'],
                             ];
                         @endphp
 
-                        @foreach ($dataGuru as $i => $guru)
+                        @foreach ($dataKelas as $i => $kelas)
                         <tr>
                             <td>{{ $i + 1 }}</td>
-                            <td>{{ $guru['nip'] }}</td>
-                            <td>{{ $guru['nama'] }}</td>
-                            <td>{{ $guru['email'] }}</td>
+                            <td>{{ $kelas['nk'] }}</td>
+                            <td>{{ $kelas['wk'] }}</td>
                             <td>
                                 <a href="#" class="btn btn-sm btn-info text-white">
                                     <i class="bi bi-pencil-square"></i> Edit
                                 </a>
                                 <a href="#" class="btn btn-sm btn-danger">
-                                    <i class="bi bi-trash"></i> Del
+                                    <i class="bi bi-trash"></i> Delete
                                 </a>
                             </td>
                         </tr>
@@ -79,16 +76,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nip" class="form-label">NIP/NUPTK</label>
-                        <input type="text" class="form-control" id="nip" name="nip" required>
+                        <label for="nip" class="form-label">Nama Kelas</label>
+                        <input type="text" class="form-control" id="nisn" name="nk" required>
                     </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Guru</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Guru</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="nama" class="form-label">Wali Kelas</label>
+                        <input type="text" class="form-control" id="nama" name="wk" required>
                     </div>
                 </div>
                 <div class="modal-footer">
