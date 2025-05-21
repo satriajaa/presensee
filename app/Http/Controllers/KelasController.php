@@ -12,7 +12,8 @@ class KelasController extends Controller
      */
     public function index()
     {
-        return Kelas::all();
+        $kelas = Kelas::all();
+        return view('admin.kelas.index', compact('kelas'));
     }
 
     /**
@@ -20,7 +21,7 @@ class KelasController extends Controller
      */
     public function create()
     {
-        return view('kelas.create');
+        
     }
 
     /**
@@ -29,13 +30,16 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tingkat' => 'required|integer',
-            'nama_kelas' => 'required|string|max:20',
+            'tingkat' => 'required|string|max:10',
+            'nama_kelas' => 'required|string|max:50|unique:kelas,nama_kelas',
         ]);
 
-        Kelas::create($request->all());
+        Kelas::create([
+            'tingkat' => $request->tingkat,
+            'nama_kelas' => $request->nama_kelas,
+        ]);
 
-        return redirect()->route('kelas.index')->with('success', 'Data kelas berhasil ditambahkan.');
+        return redirect()->route('kelas.index')->with('success', 'Kelas berhasil ditambahkan.');
     }
 
     /**
@@ -43,8 +47,7 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        $kelas = Kelas::findOrFail($id);
-        return view('kelas.show', compact('kelas'));
+        
     }
 
     /**
@@ -52,8 +55,7 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-        $kelas = Kelas::findOrFail($id);
-        return view('kelas.edit', compact('kelas'));    
+            
     }
 
     /**
@@ -61,15 +63,19 @@ class KelasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $kelas = Kelas::findOrFail($id);
+
         $request->validate([
-            'tingkat' => 'required|integer',
-            'nama_kelas' => 'required|string|max:20',
+            'tingkat' => 'required|string|max:10',
+            'nama_kelas' => 'required|string|max:50|unique:kelas,nama_kelas,' . $kelas->id,
         ]);
 
-        $kelas = Kelas::findOrFail($id);
-        $kelas->update($request->all());
+        $kelas->update([
+            'tingkat' => $request->tingkat,
+            'nama_kelas' => $request->nama_kelas,
+        ]);
 
-        return redirect()->route('kelas.index')->with('success', 'Data kelas berhasil diperbarui.');
+        return redirect()->route('kelas.index')->with('success', 'Kelas berhasil diperbarui.');
     }
 
     /**
@@ -77,9 +83,10 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
+
         $kelas = Kelas::findOrFail($id);
         $kelas->delete();
 
-        return redirect()->route('kelas.index')->with('success', 'Data kelas berhasil dihapus.');
+        return redirect()->route('kelas.index')->with('success', 'Kelas berhasil dihapus.');
     }
 }

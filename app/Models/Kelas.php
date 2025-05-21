@@ -7,21 +7,23 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Kelas extends Model
 {
-    public $timestamps = false;
-
+    public $timestamps = true;
+    protected $table = "Kelas";
     protected $fillable = [
         'tingkat',
         'nama_kelas'
     ];
 
-    public function users(): HasMany
+    public function siswa(): HasMany
     {
         return $this->hasMany(User::class, 'id_kelas');
     }
 
     public function waliKelas(): HasMany
     {
-        return $this->hasMany(User::class, 'id_wali_kelas');
+        return $this->hasMany(User::class, 'id_wali_kelas')->whereHas('role', function ($query){
+            $query->where('nama_role', 'Guru');
+        });
     }
 
     public function jadwalPelajaran(): HasMany
