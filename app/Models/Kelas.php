@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Kelas extends Model
+class kelas extends Model
 {
     public $timestamps = true;
-    protected $table = "Kelas";
+    protected $table = "kelas";
     protected $fillable = [
         'tingkat',
         'nama_kelas'

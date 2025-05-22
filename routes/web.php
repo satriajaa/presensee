@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\JadwalPelajaranController;
@@ -8,6 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('kelas', KelasController::class);
 
 
 
@@ -22,6 +24,8 @@ Route::get('/datasiswa/admin', function () {
 Route::get('/datakelas/admin', function () {
     return view('admin.kelas');
 });
+Route::resource('kelas', KelasController::class);
+
 Route::get('/datamapel/admin', function () {
     return view('admin.mapel');
 });
