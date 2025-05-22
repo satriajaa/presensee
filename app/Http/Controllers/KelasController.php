@@ -21,7 +21,7 @@ class KelasController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -47,7 +47,7 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -55,7 +55,8 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-            
+            $kelas = Kelas::findOrFail($id);
+    return view('admin.kelas.edit', compact('kelas'));
     }
 
     /**

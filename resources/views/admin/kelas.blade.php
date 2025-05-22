@@ -49,9 +49,7 @@
                             <td>{{ $kelas['nk'] }}</td>
                             <td>{{ $kelas['wk'] }}</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-info text-white">
-                                    <i class="bi bi-pencil-square"></i> Edit
-                                </a>
+                                <a href="{{ route('kelas.edit', $i + 1) }}" class="btn btn-info btn-sm">Edit</a>
                                 <a href="#" class="btn btn-sm btn-danger">
                                     <i class="bi bi-trash"></i> Delete
                                 </a>
