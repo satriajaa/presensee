@@ -9,7 +9,7 @@ class JadwalPelajaran extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'jadwal_pelajaran';
+    protected $table = 'jadwal_pelajarans';
 
     protected $fillable = [
         'id_kelas',
