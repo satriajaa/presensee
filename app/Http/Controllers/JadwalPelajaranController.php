@@ -28,7 +28,19 @@ class JadwalPelajaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+        'guru' => 'required|string|max:255',
+        // tambahkan validasi field lain jika ada
+    ]);
+
+    // Simpan data ke database
+    JadwalPelajaran::create([
+        'guru' => $validated['guru'],
+        // sesuaikan dengan kolom tabel di database
+    ]);
+
+    // Redirect kembali ke halaman jadwal dengan pesan sukses
+    return redirect()->route('jadwal.index')->with('success', 'Jadwal berhasil ditambahkan');
     }
 
     /**
